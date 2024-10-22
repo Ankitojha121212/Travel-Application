@@ -1,0 +1,71 @@
+<% layout("/layouts/boilerplate") %>
+
+<body>
+    <h1 class="offset-2">Edit</h1>
+    <h3 class="offset-2">Id : <%= listing.id %></h3>
+
+    
+    <div class="row mt-3">
+        <div class="col-8 offset-2">
+    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" enctype="multipart/form-data" novalidate class="needs-validation">
+
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input name="listing[title]" value="<%= listing.title %>" type="text" class="form-control" required/>
+            <div class="valid-feedback">looks great  &#128512;</div>
+            <div class="invalid-feedback">Please Enter valid Title &#129313;</div>
+
+            </div>
+            <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                <textarea name="listing[description]"  rows="5" cols="50" class="form-control" required><%= listing.description %></textarea>
+                <div class="valid-feedback">looks great  &#128512;</div>
+                <div class="invalid-feedback">Please Enter valid Description &#129313;</div>
+
+
+            </div>
+
+            <div class="mb-3">
+                <p>Original image </p>
+                <img src="<%= originalImageURL %>" alt="img"/>
+            </div>
+
+            <div class="mb-3">
+                <label for="image" class="form-label">Upload Image</label>
+                <input name="listing[image]" rows="1" type="file" cols="50"  class="form-control" />
+                <div class="valid-feedback">looks great  &#128512;</div>
+                <div class="invalid-feedback"> upload image of valid type &#129313;</div>
+
+                </div>
+                
+                <div class="row">
+                <div class="mb-3 col-md-4">
+                    <label for="price" class="form-label">Price</label>
+                    <input name="listing[price]" value="<%= listing.price %>" type="number" class="form-control" required/>
+                    <div class="valid-feedback">looks great  &#128512;</div>
+                    <div class="invalid-feedback">Please Enter valid Price &#129313;</div>
+
+
+                    </div>
+                        <div class="mb-3 col-md-4" >
+                    <label for="location" class="form-label">Location</label>
+                    <input name="listing[location]" value="<%= listing.location %>" type="text" class="form-control" required/>
+                    <div class="valid-feedback">looks great  &#128512;</div>
+                    <div class="invalid-feedback">Please Enter valid Location &#129313;</div>
+
+
+                </div>
+            </div>
+                <div class="mb-3 col-md-4">
+                    <label for="country" class="form-label">Country</label>
+                    <input name="listing[country]" value="<%= listing.country %>"type="text" required />
+                    <div class="valid-feedback">looks great  &#128512;</div>
+                    <div class="invalid-feedback">Please Enter valid Country &#129313;</div>
+
+
+                </div>
+    <button class="btn btn-dark edit-btn mt-3">Edit</button>
+    </form>
+    </div></div>
+    
+</body>
